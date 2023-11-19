@@ -1,17 +1,18 @@
-"""程序入口"""
-import os
+"""main"""
+import logging
 
-from .settings import DEBUG
-
-
-def get_all_environment_variables():
-    for key, value in os.environ.items():
-        print(f"{key}: {value}")
+from .steam import init_dst_server
+from .settings import STEAM_PATH, DST_SERVER_PATH, DST_APPID
 
 
-if DEBUG:
-    # 调用函数获取并打印所有环境变量
-    get_all_environment_variables()
+log = logging.getLogger(__name__)
 
 
-print("hello dst")
+def main():
+    """主函数"""
+    log.info("#### dst deploy start ####")
+    init_dst_server(STEAM_PATH, DST_SERVER_PATH, DST_APPID)
+
+
+if __name__ == "__main__":
+    main()
