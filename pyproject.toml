@@ -17,7 +17,7 @@ build-backend = "pdm.backend"
 [tool.pdm.scripts]
 # 开发环境
 dev.env_file.override = "dev.env"
-dev.cmd = "python3 src/dst_deploy/main.py"
+dev.cmd = "python3 -m dst_deploy.main"
 # 测试环境
-prod.env_file.override = "dev.env"
-prod.cmd = "python3 src/dst_deploy/main.py"
+prod.env_file.override = "prod.env"
+prod.cmd = "python3 -m dst_deploy.main"
