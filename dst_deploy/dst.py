@@ -65,6 +65,7 @@ class DstServer:
             cwd=self.initiator_path,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
+            stdin=subprocess.PIPE,
             encoding="utf-8",
             bufsize=1,
         )

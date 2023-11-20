@@ -1,4 +1,5 @@
 """main"""
+import sys
 import logging
 
 from .steam import init_dst_server
@@ -17,15 +18,9 @@ def main():
     dst.run()
     log.info("#### dst server running ####")
     while True:
-        try:
-            # 打印master日志
-            if dst.master:
-                # 执行命令
-                cmd = input("input cmd: ")
-                cmd = f"BEGIN_CMD\n{cmd}\nEND_CMD\n"
-                dst.master.communicate(cmd, timeout=5)
-        except Exception as e:
-            log.exception(f"err: {e}")
+        cmd = input()
+        cmd = f"{cmd}\n"
+        dst.master.stdin.write(cmd)
 
 
 if __name__ == "__main__":
