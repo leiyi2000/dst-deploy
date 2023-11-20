@@ -1,6 +1,14 @@
 """项目配置"""
+import logging
+
 from .utils.env import Env
 
+
+# 日志
+logging.basicConfig(
+    format='%(message)s',
+    level=logging.INFO,
+)
 
 # 是否debug模式
 DEBUG = Env.boolean("DEBUG", False)
