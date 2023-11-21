@@ -1,6 +1,6 @@
 [project]
 name = "dst-deploy"
-version = "0.1.0"
+version = "1.0.0"
 description = "dst deploy"
 authors = [
     {name = "ylei", email = ""},
