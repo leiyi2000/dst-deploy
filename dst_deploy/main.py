@@ -1,5 +1,4 @@
 """main"""
-import sys
 import logging
 
 from .steam import init_dst_server
@@ -17,10 +16,6 @@ def main():
     dst = DstServer(DST_SERVER_PATH, cluster="Cluster_1")
     dst.run()
     log.info("#### dst server running ####")
-    while True:
-        cmd = input()
-        cmd = f"{cmd}\n"
-        dst.master.stdin.write(cmd)
 
 
 if __name__ == "__main__":
