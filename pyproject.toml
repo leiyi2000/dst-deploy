@@ -17,7 +17,10 @@ requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
 [tool.pdm.dev-dependencies]  # This is dev dependencies
-dev = ["ruff"]
+dev = [
+    "ruff",
+    "twine",
+]
 
 [tool.pdm.scripts]
 # 开发环境
