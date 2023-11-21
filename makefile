@@ -12,3 +12,6 @@ run_dst_master:
 
 run_dst_caves:
 	cd ~/dst_server/bin64 && ./dontstarve_dedicated_server_nullrenderer_x64 -console -cluster Cluster_1 -shard Caves
+
+publish:
+	pdm run python3 -m twine upload dist/*
