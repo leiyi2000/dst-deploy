@@ -19,7 +19,11 @@ def deploy(cluster: str):
     init_dst_server(STEAM_PATH, DST_SERVER_PATH, DST_APPID)
     dst = DstServer(DST_SERVER_PATH, cluster=cluster)
     dst.run()
-    log.info("#### dst server running ####")
+    while True:
+        try:
+            log.info(f"[master]: {dst.master.stdout.readline()}")
+        except Exception as e:
+            log.exception(f"dst server run err: {e}")
 
 
 if __name__ == "__main__":
