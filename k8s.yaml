@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dst-server
+  labels:
+    app: dst-server
+  namespace: ylei-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dst-server
+  template:
+    metadata:
+      labels:
+        app: dst-server
+    spec:
+      containers:
+      - name: dst-server
+        image: registry.cn-hangzhou.aliyuncs.com/yuwu2000/ubuntu:dst_1
+        volumeMounts:
+        - mountPath: /root/steamcmd
+          name: steamcmd-volume
+        - mountPath: /root/dst_server
+          name: server-volume
+        - mountPath: /root/.klei/DoNotStarveTogether/Cluster_1
+          name: cluster-volume
+      volumes:
+      - name: steamcmd-volume
+        hostPath:
+          path: /data/ylei/dst/steamcmd
+          type: DirectoryOrCreate
+      - name: server-volume
+        hostPath:
+          path: /data/ylei/dst/dst_server
+          type: DirectoryOrCreate
+      - name: cluster-volume
+        hostPath:
+            path: /data/ylei/dst/cluster/Cluster_1
+            type: DirectoryOrCreate

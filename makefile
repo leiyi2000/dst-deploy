@@ -15,3 +15,6 @@ run_dst_caves:
 
 publish:
 	pdm build && pdm run python3 -m twine upload dist/*
+
+k8s_deployment:
+	kubectl apply -f k8s.yaml
